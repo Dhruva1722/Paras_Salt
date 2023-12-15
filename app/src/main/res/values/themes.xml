@@ -1,0 +1,13 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Base application theme. -->
+    <style name="Base.Theme.SaltIndustry" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:textColorPrimary">#012842</item>
+        <item name="bottomNavigationStyle">@style/Widget.MaterialComponents.BottomNavigationView.Colored</item>
+        <item name="colorPrimary">#3A9CD8</item>
+        <item name="colorOnPrimary">#E6F1FD</item>
+
+    </style>
+
+    <style name="Theme.SaltIndustry" parent="Base.Theme.SaltIndustry" />
+</resources>

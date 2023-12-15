@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_margin="10dp"
+        android:background="#DEECF4">
+        <EditText
+            android:id="@+id/shopNameID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Shop name"
+            android:inputType="text"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/customerNameID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Customer name"
+            android:inputType="text"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/productNameID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Product name"
+            android:inputType="text"
+            android:layout_margin="5dp"/>
+
+        <EditText
+            android:id="@+id/CustomerNumberID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Customer / Shop number"
+            android:layout_margin="5dp"
+            android:inputType="number"/>
+
+        <EditText
+            android:id="@+id/priceID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Total price"
+            android:inputType="number"
+            android:layout_margin="5dp"/>
+
+        
+        <Button
+            android:id="@+id/addBtnID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Add Data"
+            android:textColor="@color/white"
+            android:backgroundTint="#1083E8"
+            android:layout_gravity="center_horizontal"
+            android:layout_margin="10dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
