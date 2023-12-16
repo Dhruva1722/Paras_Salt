@@ -3,48 +3,148 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:layout_margin="10dp"
-        android:background="#DEECF4">
-    <TextView
-        android:id="@+id/shopName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Shop name"
-        android:layout_margin="5dp"/>
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="10dp"
+        android:elevation="10dp"
+        android:gravity="center_horizontal"
+        android:background="@drawable/rectangle_bg">
 
-    <TextView
-        android:id="@+id/customerName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Customer name"
-        android:layout_margin="5dp"/>
-
-    <TextView
-        android:id="@+id/productName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Product name"
-        android:layout_margin="5dp"/>
-
-    <TextView
-        android:id="@+id/customerNumber"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Customer / Shop number"
-        android:layout_margin="5dp"/>
-
-    <TextView
-        android:id="@+id/price"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Total price"
-        android:layout_margin="5dp"/>
+        <TextView
+            android:id="@+id/shopNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Shop name :"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
 
-    </LinearLayout>
+        <TextView
+            android:id="@+id/shopName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/shopNameTxt"
+            android:text="Shop name"
+            android:textSize="15sp" />
+
+<!--        <TextView-->
+<!--            android:id="@+id/border2"-->
+<!--            android:layout_width="180dp"-->
+<!--            android:layout_height="1dp"-->
+<!--            android:background="#888888"-->
+<!--            android:layout_marginTop="2dp"-->
+<!--            android:layout_marginStart="40dp"-->
+<!--            android:layout_below="@id/shopNameTxt" />-->
+
+
+
+        <TextView
+            android:id="@+id/customerNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shopNameTxt"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Customer name : "
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/customerName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/shopNameTxt"
+            android:layout_marginTop="5dp"
+            android:layout_toRightOf="@id/customerNameTxt"
+            android:text="Customer name"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/productNameTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerNameTxt"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Product name:"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/productName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerName"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/productNameTxt"
+            android:text="Product name"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/customerNumberTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productNameTxt"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Phone number :"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/customerNumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/productName"
+            android:layout_marginTop="15dp"
+            android:layout_marginStart="5dp"
+            android:layout_toRightOf="@id/customerNumberTxt"
+            android:text="Phone number"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/priceTxt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerNumberTxt"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:text="Total price :"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/customerNumber"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_toRightOf="@id/priceTxt"
+            android:text="Total price"
+            android:textSize="15sp" />
+
+
+    </RelativeLayout>
 
 </RelativeLayout>

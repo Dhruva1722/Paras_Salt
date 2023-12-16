@@ -36,7 +36,8 @@
         android:id="@+id/relativelayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/toolBarLy" />
+        android:layout_below="@id/toolBarLy"
+        android:layout_above="@id/bottomNavigationView"/>
 
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
@@ -46,6 +47,8 @@
         android:layout_alignParentBottom="true"
         android:layout_marginBottom="5dp"
         app:menu="@menu/bottom_menu"
+        android:clickable="true"
+        android:focusable="true"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"/>
 
