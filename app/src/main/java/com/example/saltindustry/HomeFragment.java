@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.SearchView;
+import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,6 +52,14 @@ public class HomeFragment extends Fragment {
 
         // Initialize adapter
         adapter = new CustomAdapter(requireContext(), dataList);
+
+        adapter.setOnDeleteItemClickListener(new CustomAdapter.OnDeleteItemClickListener() {
+            @Override
+            public void onDeleteItemClick(int position) {
+                // Handle delete item click
+                deleteItem(position);
+            }
+        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
@@ -95,7 +104,7 @@ public class HomeFragment extends Fragment {
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-                // Handle error
+                Toast.makeText(getContext(), "No Data Available", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -116,5 +125,28 @@ public class HomeFragment extends Fragment {
             // Update the adapter with the filtered list
             adapter.filterList(filteredList);
         }
+    }
+
+    private void deleteItem(int position) {
+        DataModel selectedData = dataList.get(position);
+        String selectedKey = getKeyByValue(selectedData);
+        if (selectedKey != null) {
+            // Remove from the local list
+            dataList.remove(position);
+            originalList.remove(selectedData);
+
+            // Remove from Firebase
+            databaseReference.child(selectedKey).removeValue();
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    private String getKeyByValue(DataModel value) {
+        for (int i = 0; i < originalList.size(); i++) {
+            if (originalList.get(i).equals(value)) {
+                return String.valueOf(i);
+            }
+        }
+        return null;
     }
 }

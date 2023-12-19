@@ -9,14 +9,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
+import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 
 public class AddFragment extends Fragment {
 
-    private EditText shopNameEditText, customerNameEditText, productNameEditText, customerNumberEditText, priceEditText;
+    private TextInputEditText shopNameEditText, customerNameEditText, productNameEditText, customerNumberEditText, priceEditText;
     private Button addBtn;
 
     // Firebase
@@ -42,6 +45,7 @@ public class AddFragment extends Fragment {
             public void onClick(View v) {
                 addDataToFirebase();
             }
+
         });
 
         return view;
@@ -59,7 +63,7 @@ public class AddFragment extends Fragment {
 
         // Check if any field is empty
         if (shopName.isEmpty() || customerName.isEmpty() || productName.isEmpty() || customerNumber.isEmpty() || price.isEmpty()) {
-            // Handle the case where any field is empty, show a message or perform necessary actions
+            Toast.makeText(getContext(), "All fields Require", Toast.LENGTH_LONG).show();
             return;
         }
 
@@ -78,6 +82,7 @@ public class AddFragment extends Fragment {
         productNameEditText.setText("");
         customerNumberEditText.setText("");
         priceEditText.setText("");
+        Toast.makeText(getContext(), "Data save Successfully", Toast.LENGTH_LONG).show();
     }
 
 }

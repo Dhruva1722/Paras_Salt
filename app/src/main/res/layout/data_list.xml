@@ -1,150 +1,193 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <RelativeLayout
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="10dp"
-        android:elevation="10dp"
-        android:gravity="center_horizontal"
-        android:background="@drawable/rectangle_bg">
+        app:cardElevation="10dp"
+        app:cardCornerRadius="20dp"
+        android:layout_margin="12dp"
+        app:cardBackgroundColor="@color/white"
+        app:cardMaxElevation="12dp"
+        app:cardPreventCornerOverlap="true">
 
-        <TextView
-            android:id="@+id/shopNameTxt"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Shop name :"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            android:gravity="center_vertical"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/shopNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="10dp"
+                android:text="Shop Name :"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:fontFamily="@font/merriweatherbold"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/shopName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_toRightOf="@id/shopNameTxt"
+                android:text="Shop Name"
+                android:textColor="#555555"
+                android:textSize="15sp"
+                android:layout_marginStart="7dp"
+                app:layout_constraintHorizontal_bias="0.072"
+                app:layout_constraintStart_toEndOf="@+id/shopNameTxt"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/customerNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shopNameTxt"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Customer Name :"
+                android:fontFamily="@font/merriweatherbold"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/shopNameTxt" />
+
+            <TextView
+                android:id="@+id/customerName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/shopName"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="8dp"
+                android:layout_toRightOf="@id/customerNameTxt"
+                android:text="Customer Name"
+                android:textColor="#555555"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintStart_toEndOf="@+id/customerNameTxt"
+                app:layout_constraintTop_toBottomOf="@+id/shopName" />
+
+            <TextView
+                android:id="@+id/productNameTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customerNameTxt"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Product name :"
+                android:fontFamily="@font/merriweatherbold"
+                android:textColor="#333333"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerNameTxt" />
 
 
-        <TextView
-            android:id="@+id/shopName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_toRightOf="@id/shopNameTxt"
-            android:text="Shop name"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/productName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customerName"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@id/productNameTxt"
+                android:text="Product name"
+                android:textColor="#555555"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.06"
+                app:layout_constraintStart_toEndOf="@+id/productNameTxt"
+                app:layout_constraintTop_toBottomOf="@+id/customerName" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/border2"-->
-<!--            android:layout_width="180dp"-->
-<!--            android:layout_height="1dp"-->
-<!--            android:background="#888888"-->
-<!--            android:layout_marginTop="2dp"-->
-<!--            android:layout_marginStart="40dp"-->
-<!--            android:layout_below="@id/shopNameTxt" />-->
+            <TextView
+                android:id="@+id/customerNumberTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/productNameTxt"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:text="Phone number :"
+                android:textColor="#333333"
+                android:fontFamily="@font/merriweatherbold"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/productNameTxt" />
 
+            <TextView
+                android:id="@+id/customerNumber"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/productName"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="8dp"
+                android:layout_toEndOf="@id/customerNumberTxt"
+                android:text="Phone number"
+                android:textColor="#555555"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.028"
+                app:layout_constraintStart_toEndOf="@+id/customerNumberTxt"
+                app:layout_constraintTop_toBottomOf="@+id/productName" />
 
-
-        <TextView
-            android:id="@+id/customerNameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shopNameTxt"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Customer name : "
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/customerName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/shopNameTxt"
-            android:layout_marginTop="5dp"
-            android:layout_toRightOf="@id/customerNameTxt"
-            android:text="Customer name"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/productNameTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/customerNameTxt"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Product name:"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-
-        <TextView
-            android:id="@+id/productName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/customerName"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="5dp"
-            android:layout_toRightOf="@id/productNameTxt"
-            android:text="Product name"
-            android:textSize="15sp" />
-
-        <TextView
-            android:id="@+id/customerNumberTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/productNameTxt"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Phone number :"
-            android:textSize="18sp"
-            android:textStyle="bold" />
+            <TextView
+                android:id="@+id/priceTxt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customerNumberTxt"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="10dp"
+                android:text="Total price  :"
+                android:textColor="#333333"
+                android:fontFamily="@font/merriweatherbold"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/customerNumberTxt" />
 
 
-        <TextView
-            android:id="@+id/customerNumber"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/productName"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="5dp"
-            android:layout_toRightOf="@id/customerNumberTxt"
-            android:text="Phone number"
-            android:textSize="15sp" />
+            <TextView
+                android:id="@+id/price"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/customerNumber"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="7dp"
+                android:layout_marginTop="12dp"
+                android:layout_toRightOf="@id/priceTxt"
+                android:text="Total price"
+                android:textColor="#555555"
+                android:textSize="15sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintStart_toEndOf="@+id/priceTxt"
+                app:layout_constraintTop_toBottomOf="@+id/customerNumber" />
 
-        <TextView
-            android:id="@+id/priceTxt"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/customerNumberTxt"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:layout_marginEnd="5dp"
-            android:layout_marginBottom="5dp"
-            android:text="Total price :"
-            android:textSize="18sp"
-            android:textStyle="bold" />
-
-        <TextView
-            android:id="@+id/price"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/customerNumber"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="15dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:layout_toRightOf="@id/priceTxt"
-            android:text="Total price"
-            android:textSize="15sp" />
+            <ImageView
+                android:id="@+id/deleteBtn"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:src="@drawable/trash"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.906"
+                app:layout_constraintStart_toEndOf="@+id/shopName"
+                app:layout_constraintTop_toTopOf="parent" />
 
 
-    </RelativeLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
 
 </RelativeLayout>
