@@ -28,7 +28,7 @@
                 android:layout_marginStart="10dp"
                 android:text="Shop Name :"
                 android:textColor="#333333"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:fontFamily="@font/merriweatherbold"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
@@ -57,7 +57,7 @@
                 android:text="Customer Name :"
                 android:fontFamily="@font/merriweatherbold"
                 android:textColor="#333333"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/shopNameTxt" />
@@ -74,7 +74,7 @@
                 android:textColor="#555555"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.034"
+                app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toEndOf="@+id/customerNameTxt"
                 app:layout_constraintTop_toBottomOf="@+id/shopName" />
 
@@ -88,7 +88,7 @@
                 android:text="Product name :"
                 android:fontFamily="@font/merriweatherbold"
                 android:textColor="#333333"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/customerNameTxt" />
@@ -100,13 +100,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/customerName"
                 android:layout_marginStart="7dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/productNameTxt"
                 android:text="Product name"
                 android:textColor="#555555"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.06"
+                app:layout_constraintHorizontal_bias="0.049"
                 app:layout_constraintStart_toEndOf="@+id/productNameTxt"
                 app:layout_constraintTop_toBottomOf="@+id/customerName" />
 
@@ -120,7 +120,7 @@
                 android:text="Phone number :"
                 android:textColor="#333333"
                 android:fontFamily="@font/merriweatherbold"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/productNameTxt" />
@@ -137,7 +137,7 @@
                 android:textColor="#555555"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.028"
+                app:layout_constraintHorizontal_bias="0.013"
                 app:layout_constraintStart_toEndOf="@+id/customerNumberTxt"
                 app:layout_constraintTop_toBottomOf="@+id/productName" />
 
@@ -152,11 +152,10 @@
                 android:text="Total price  :"
                 android:textColor="#333333"
                 android:fontFamily="@font/merriweatherbold"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/customerNumberTxt" />
-
 
             <TextView
                 android:id="@+id/price"
@@ -165,13 +164,13 @@
                 android:layout_below="@id/customerNumber"
                 android:layout_centerVertical="true"
                 android:layout_marginStart="7dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_toRightOf="@id/priceTxt"
                 android:text="Total price"
                 android:textColor="#555555"
                 android:textSize="15sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.02"
+                app:layout_constraintHorizontal_bias="0.054"
                 app:layout_constraintStart_toEndOf="@+id/priceTxt"
                 app:layout_constraintTop_toBottomOf="@+id/customerNumber" />
 

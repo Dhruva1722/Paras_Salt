@@ -2,6 +2,9 @@ package com.example.saltindustry;
 
 public class DataModel {
 
+    private String firebaseKey;
+
+
     private String shopName;
     private String customerName;
     private String productName;
@@ -12,7 +15,7 @@ public class DataModel {
         // Default constructor required for calls to DataSnapshot.getValue(DataModel.class)
     }
 
-    public DataModel(String shopName, String customerName, String productName, String customerNumber, String price) {
+    public DataModel(  String shopName, String customerName, String productName, String customerNumber, String price) {
         this.shopName = shopName;
         this.customerName = customerName;
         this.productName = productName;
@@ -20,6 +23,13 @@ public class DataModel {
         this.price = price;
     }
 
+    public String getFirebaseKey() {
+        return firebaseKey;
+    }
+
+    public void setFirebaseKey(String firebaseKey) {
+        this.firebaseKey = firebaseKey;
+    }
     public String getShopName() {
         return shopName;
     }

@@ -4,12 +4,17 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,15 +27,9 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     private Context context;
     private List<DataModel> dataList;
     private List<DataModel> originalList;
-    private static OnDeleteItemClickListener deleteItemClickListener;
 
-    public interface OnDeleteItemClickListener {
-        void onDeleteItemClick(int position);
-    }
+    List<DataModel> filteredList = new ArrayList<>();
 
-    public void setOnDeleteItemClickListener(OnDeleteItemClickListener listener) {
-        this.deleteItemClickListener = listener;
-    }
 
     public CustomAdapter(Context context, List<DataModel> dataList) {
         this.context = context;
@@ -57,9 +56,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
         holder.deleteButton.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                if (deleteItemClickListener != null) {
-                    deleteItemClickListener.onDeleteItemClick(position);
+            public void onClick(View v) {
+                if (data != null) {
+                    // Get the Firebase key (unique identifier) for the item
+                    String firebaseKey = data.getFirebaseKey();
+
+                    // Call a non-static method to delete the data from Firebase
+                    deleteDataFromFirebase(firebaseKey);
+                } else {
+                    // Log or handle the case where data is null
                 }
             }
         });
@@ -72,8 +77,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView shopNameTextView, customerNameTextView, productNameTextView, customerNumberTextView, priceTextView;
-        ImageView deleteButton;
-
+        ImageView deleteButton ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
@@ -82,24 +86,38 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             productNameTextView = itemView.findViewById(R.id.productName);
             customerNumberTextView = itemView.findViewById(R.id.customerNumber);
             priceTextView = itemView.findViewById(R.id.price);
+
             deleteButton = itemView.findViewById(R.id.deleteBtn);
 
-            deleteButton.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    // Handle the delete button click
-                    if (deleteItemClickListener != null) {
-                        deleteItemClickListener.onDeleteItemClick(getAdapterPosition());
-                    }
-                }
-            });
         }
+
+    }
+    private void deleteDataFromFirebase(String firebaseKey) {
+        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ClientData");
+
+        // Remove the data with the specified key from Firebase
+        databaseReference.child(firebaseKey).removeValue()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        // Handle the success case (e.g., show a toast)
+                        Toast.makeText(context, "Data deleted successfully", Toast.LENGTH_SHORT).show();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        // Handle the failure case (e.g., show an error message)
+                        Toast.makeText(context, "Failed to delete data", Toast.LENGTH_SHORT).show();
+                    }
+                });
     }
 
     public void filterList(List<DataModel> filteredList) {
         dataList.clear();
         dataList.addAll(filteredList);
         notifyDataSetChanged();
+
     }
 }
 

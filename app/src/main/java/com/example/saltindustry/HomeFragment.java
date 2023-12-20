@@ -23,6 +23,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 
+
 public class HomeFragment extends Fragment {
 
     private RecyclerView recyclerView;
@@ -32,6 +33,8 @@ public class HomeFragment extends Fragment {
     private List<DataModel> originalList;
 
     private DatabaseReference databaseReference;
+
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -43,23 +46,15 @@ public class HomeFragment extends Fragment {
         // Initialize Firebase
         databaseReference = FirebaseDatabase.getInstance().getReference("ClientData");
 
-        // Initialize views
         recyclerView = view.findViewById(R.id.list_view);
         SearchView searchView = view.findViewById(R.id.idSV);
 
         dataList = new ArrayList<>();
-        originalList = new ArrayList<>();  // Initialize originalList
+        originalList = new ArrayList<>();
 
-        // Initialize adapter
+
         adapter = new CustomAdapter(requireContext(), dataList);
 
-        adapter.setOnDeleteItemClickListener(new CustomAdapter.OnDeleteItemClickListener() {
-            @Override
-            public void onDeleteItemClick(int position) {
-                // Handle delete item click
-                deleteItem(position);
-            }
-        });
 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
         recyclerView.setAdapter(adapter);
@@ -86,6 +81,7 @@ public class HomeFragment extends Fragment {
     }
 
 
+
     private void retrieveData() {
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -95,10 +91,12 @@ public class HomeFragment extends Fragment {
 
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
                     DataModel data = snapshot.getValue(DataModel.class);
-                    dataList.add(data);
-                    originalList.add(data);  // Add data to originalList
-                }
+                    // Set the Firebase key
+                    data.setFirebaseKey(snapshot.getKey());
 
+                    dataList.add(0, data);  // Add data at the beginning of the list
+                    originalList.add(data);
+                }
                 adapter.notifyDataSetChanged();
             }
 
@@ -127,26 +125,5 @@ public class HomeFragment extends Fragment {
         }
     }
 
-    private void deleteItem(int position) {
-        DataModel selectedData = dataList.get(position);
-        String selectedKey = getKeyByValue(selectedData);
-        if (selectedKey != null) {
-            // Remove from the local list
-            dataList.remove(position);
-            originalList.remove(selectedData);
 
-            // Remove from Firebase
-            databaseReference.child(selectedKey).removeValue();
-            adapter.notifyDataSetChanged();
-        }
-    }
-
-    private String getKeyByValue(DataModel value) {
-        for (int i = 0; i < originalList.size(); i++) {
-            if (originalList.get(i).equals(value)) {
-                return String.valueOf(i);
-            }
-        }
-        return null;
-    }
 }

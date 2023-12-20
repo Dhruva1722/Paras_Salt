@@ -13,7 +13,7 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/backgroundLayout"
         android:layout_width="148dp"
-        android:layout_height="152dp"
+        android:layout_height="142dp"
         android:background="@drawable/splash_bg"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -41,27 +41,15 @@
         app:layout_constraintTop_toTopOf="parent"
         app:tint="@color/white" />
 
-
-    <ProgressBar
-        android:id="@+id/idPBLoading"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:layout_margin="5dp"
-        android:indeterminateTint="#817979"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:layout_editor_absoluteY="550dp" />
-
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Paras Salt"
         android:textAllCaps="true"
+        android:textColor="#0079D7"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="#0079D7"
         app:layout_constraintBottom_toTopOf="@+id/idPBLoading"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
