@@ -4,10 +4,20 @@ public class DataModel {
 
     private String firebaseKey;
 
-
+    private String date;
     private String shopName;
     private String customerName;
     private String productName;
+
+    public String getDate() {
+        return date;
+    }
+
+    public String getProductQuantity() {
+        return productQuantity;
+    }
+
+    private String productQuantity ;
     private String customerNumber;
     private String price;
 
@@ -15,10 +25,12 @@ public class DataModel {
         // Default constructor required for calls to DataSnapshot.getValue(DataModel.class)
     }
 
-    public DataModel(  String shopName, String customerName, String productName, String customerNumber, String price) {
+    public DataModel( String date, String shopName, String customerName, String productName, String productQuantity, String customerNumber, String price) {
+        this.date = date;
         this.shopName = shopName;
         this.customerName = customerName;
         this.productName = productName;
+        this.productQuantity = productQuantity;
         this.customerNumber = customerNumber;
         this.price = price;
     }

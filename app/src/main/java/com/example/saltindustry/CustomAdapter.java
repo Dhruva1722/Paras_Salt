@@ -47,10 +47,11 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         DataModel data = dataList.get(position);
-
+        holder.dateTextView.setText(data.getDate());
         holder.shopNameTextView.setText(data.getShopName());
         holder.customerNameTextView.setText(data.getCustomerName());
         holder.productNameTextView.setText(data.getProductName());
+        holder.quantityTextView.setText(data.getProductQuantity());
         holder.customerNumberTextView.setText(data.getCustomerNumber());
         holder.priceTextView.setText(data.getPrice());
 
@@ -76,14 +77,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
-        TextView shopNameTextView, customerNameTextView, productNameTextView, customerNumberTextView, priceTextView;
+        TextView dateTextView ,shopNameTextView, customerNameTextView, productNameTextView, quantityTextView , customerNumberTextView, priceTextView;
         ImageView deleteButton ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-
+            dateTextView = itemView.findViewById(R.id.date);
             shopNameTextView = itemView.findViewById(R.id.shopName);
             customerNameTextView = itemView.findViewById(R.id.customerName);
             productNameTextView = itemView.findViewById(R.id.productName);
+            quantityTextView = itemView.findViewById(R.id.productQuantity);
             customerNumberTextView = itemView.findViewById(R.id.customerNumber);
             priceTextView = itemView.findViewById(R.id.price);
 
