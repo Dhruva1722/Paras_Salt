@@ -1,9 +1,11 @@
 package com.example.saltindustry;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -70,6 +72,10 @@ public class AddFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 addDataToFirebase();
+                FragmentManager fragmentManager = requireActivity().getSupportFragmentManager();
+                fragmentManager.beginTransaction()
+                        .replace(R.id.relativelayout, new HomeFragment())
+                        .commit();
             }
         });
         return view;
@@ -84,19 +90,15 @@ public class AddFragment extends Fragment {
         String customerNumber = customerNumberEditText.getText().toString().trim();
         String price = priceEditText.getText().toString().trim();
 
-        // Check if any field is empty
         if ( date.isEmpty() ||  shopName.isEmpty() || customerName.isEmpty() || productName.isEmpty() || productQuantity.isEmpty() || customerNumber.isEmpty() || price.isEmpty()) {
             Toast.makeText(getContext(), "All fields Require", Toast.LENGTH_LONG).show();
             return;
         }
 
-        // Create a unique key for each entry
         String entryKey = databaseReference.push().getKey();
 
-        // Create a data object
         DataModel dataModel = new DataModel(date ,shopName, customerName, productName ,productQuantity , customerNumber, price);
 
-        // Add data to Firebase
         databaseReference.child(entryKey).setValue(dataModel);
 
         dateEdt.setText("");
@@ -107,6 +109,7 @@ public class AddFragment extends Fragment {
         customerNumberEditText.setText("");
         priceEditText.setText("");
         Toast.makeText(getContext(), "Data save Successfully", Toast.LENGTH_LONG).show();
+
     }
 
 }

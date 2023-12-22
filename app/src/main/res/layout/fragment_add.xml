@@ -31,6 +31,7 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:layout_margin="10dp"
+            android:inputType="date"
             android:clickable="false"
             android:cursorVisible="false"
             android:focusable="false"
@@ -65,7 +66,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Shop name"
-            android:inputType="text"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -75,6 +75,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:id="@+id/shopNameID"/>
 
@@ -86,7 +87,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Customer name"
-            android:inputType="text"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -96,6 +96,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:id="@+id/customerNameID"/>
 
@@ -109,7 +110,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Phone"
-            android:inputType="number"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -119,6 +119,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="phone"
                 android:textColor="@color/black"
                 android:id="@+id/CustomerNumberID"/>
 
@@ -130,7 +131,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Product name"
-            android:inputType="text"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -140,6 +140,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="text"
                 android:textColor="@color/black"
                 android:id="@+id/productNameID"/>
 
@@ -150,7 +151,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Product Quantity"
-            android:inputType="text"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -160,6 +160,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="number"
                 android:textColor="@color/black"
                 android:id="@+id/productQuantityID"/>
 
@@ -170,7 +171,6 @@
             android:layout_width="match_parent"
             android:layout_height="50dp"
             android:hint="Total price"
-            android:inputType="number"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="5dp"
             android:layout_marginRight="10dp"
@@ -180,6 +180,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="15sp"
+                android:inputType="number"
                 android:id="@+id/priceID"
                 android:textColor="@color/black" />
 
