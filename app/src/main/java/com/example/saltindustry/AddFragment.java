@@ -79,7 +79,6 @@ public class AddFragment extends Fragment {
             }
         });
         return view;
-
     }
     private void addDataToFirebase() {
         String date = dateEdt.getText().toString().trim();
@@ -109,7 +108,6 @@ public class AddFragment extends Fragment {
         customerNumberEditText.setText("");
         priceEditText.setText("");
         Toast.makeText(getContext(), "Data save Successfully", Toast.LENGTH_LONG).show();
-
     }
 
 }

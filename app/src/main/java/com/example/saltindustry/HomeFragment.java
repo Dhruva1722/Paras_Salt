@@ -13,6 +13,8 @@ import android.view.ViewGroup;
 import android.widget.SearchView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -24,7 +26,7 @@ import java.util.List;
 
 
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends Fragment  implements CustomAdapter.EditClickListener {
 
     private RecyclerView recyclerView;
     private CustomAdapter adapter;
@@ -53,7 +55,7 @@ public class HomeFragment extends Fragment {
         originalList = new ArrayList<>();
 
 
-        adapter = new CustomAdapter(requireContext(), dataList);
+        adapter = new CustomAdapter(requireContext(), dataList, this);
 
 
         recyclerView.setLayoutManager(new LinearLayoutManager(requireContext()));
@@ -99,7 +101,6 @@ public class HomeFragment extends Fragment {
                 }
                 adapter.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 Toast.makeText(getContext(), "No Data Available", Toast.LENGTH_LONG).show();
@@ -119,11 +120,52 @@ public class HomeFragment extends Fragment {
                     filteredList.add(data);
                 }
             }
-
             // Update the adapter with the filtered list
             adapter.filterList(filteredList);
         }
     }
+    @Override
+    public void onEditClick(DataModel data) {
+        String firebaseKey = data.getFirebaseKey();
+        String date = data.getDate();
+        String shopName = data.getShopName();
+        String customerName = data.getCustomerName();
+        String customerNumber = data.getCustomerNumber();
+        String productName = data.getProductName();
+        String productQuantity = data.getProductQuantity();
+        String price = data.getPrice();
 
+        // Pass the individual data fields to the EditDataDialogFragment
+        EditDataDialogFragment dialogFragment = EditDataDialogFragment.newInstance(firebaseKey, date, shopName, customerName, customerNumber, productName, productQuantity, price);
+        dialogFragment.show(getChildFragmentManager(), "EditDialog");
+    }
 
 }
+
+
+
+
+//    // after edit update data in firebase
+//    private void updateDataInFirebase(DataModel updatedData) {
+//        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference("ClientData");
+//
+//        // Get the Firebase key of the updated data
+//        String firebaseKey = updatedData.getFirebaseKey();
+//
+//        // Update the data in Firebase using the key
+//        databaseReference.child(firebaseKey).setValue(updatedData)
+//                .addOnSuccessListener(new OnSuccessListener<Void>() {
+//                    @Override
+//                    public void onSuccess(Void unused) {
+//                        // Handle the success case (e.g., show a toast)
+//                        Toast.makeText(requireContext(), "Data updated successfully", Toast.LENGTH_SHORT).show();
+//                    }
+//                })
+//                .addOnFailureListener(new OnFailureListener() {
+//                    @Override
+//                    public void onFailure(@NonNull Exception e) {
+//                        // Handle the failure case (e.g., show an error message)
+//                        Toast.makeText(requireContext(), "Failed to update data", Toast.LENGTH_SHORT).show();
+//                    }
+//                });
+//    }

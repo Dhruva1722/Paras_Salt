@@ -20,21 +20,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 
-
-
 public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder> {
 
     private Context context;
     private List<DataModel> dataList;
     private List<DataModel> originalList;
+    private EditClickListener editClickListener; // Add this variable
 
-    List<DataModel> filteredList = new ArrayList<>();
-
-
-    public CustomAdapter(Context context, List<DataModel> dataList) {
+    // Modify the constructor to accept EditClickListener
+    public CustomAdapter(Context context, List<DataModel> dataList, EditClickListener editClickListener) {
         this.context = context;
         this.dataList = dataList;
         this.originalList = new ArrayList<>(dataList);
+        this.editClickListener = editClickListener;
     }
 
     @NonNull
@@ -69,6 +67,15 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                 }
             }
         });
+
+        holder.editButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (editClickListener != null) {
+                    editClickListener.onEditClick(dataList.get(position));
+                }
+            }
+        });
     }
 
     @Override
@@ -78,7 +85,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
 
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView dateTextView ,shopNameTextView, customerNameTextView, productNameTextView, quantityTextView , customerNumberTextView, priceTextView;
-        ImageView deleteButton ;
+        ImageView deleteButton ,  editButton ;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             dateTextView = itemView.findViewById(R.id.date);
@@ -90,7 +97,7 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
             priceTextView = itemView.findViewById(R.id.price);
 
             deleteButton = itemView.findViewById(R.id.deleteBtn);
-
+            editButton = itemView.findViewById(R.id.editBtn);
         }
 
     }
@@ -113,6 +120,12 @@ public class CustomAdapter extends RecyclerView.Adapter<CustomAdapter.ViewHolder
                         Toast.makeText(context, "Failed to delete data", Toast.LENGTH_SHORT).show();
                     }
                 });
+
+    }
+
+    // edit interface
+    public interface EditClickListener {
+        void onEditClick(DataModel data);
     }
 
     public void filterList(List<DataModel> filteredList) {

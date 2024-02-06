@@ -16,4 +16,18 @@
         android:background="?android:attr/selectableItemBackgroundBorderless"/>
 
 
+
+
+<!--    <item android:id="@+id/viewData"-->
+<!--        android:title="View Data"-->
+<!--        android:icon="@drawable/baseline_home_24"-->
+<!--        android:background="?android:attr/selectableItemBackgroundBorderless"/>-->
+
+
+<!--    <item android:id="@+id/addData"-->
+<!--        android:title="Add Data"-->
+<!--        android:icon="@drawable/baseline_add_circle_24"-->
+<!--        android:background="?android:attr/selectableItemBackgroundBorderless"/>-->
+
+
 </menu>

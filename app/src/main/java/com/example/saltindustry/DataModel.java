@@ -25,7 +25,35 @@ public class DataModel {
         // Default constructor required for calls to DataSnapshot.getValue(DataModel.class)
     }
 
-    public DataModel( String date, String shopName, String customerName, String productName, String productQuantity, String customerNumber, String price) {
+    public void setDate(String date) {
+        this.date = date;
+    }
+
+    public void setShopName(String shopName) {
+        this.shopName = shopName;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public void setProductName(String productName) {
+        this.productName = productName;
+    }
+
+    public void setProductQuantity(String productQuantity) {
+        this.productQuantity = productQuantity;
+    }
+
+    public void setCustomerNumber(String customerNumber) {
+        this.customerNumber = customerNumber;
+    }
+
+    public void setPrice(String price) {
+        this.price = price;
+    }
+
+    public DataModel(String date, String shopName, String customerName, String productName, String productQuantity, String customerNumber, String price) {
         this.date = date;
         this.shopName = shopName;
         this.customerName = customerName;

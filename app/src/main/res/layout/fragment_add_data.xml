@@ -2,9 +2,9 @@
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".AddFragment"
+    tools:context=".TestingOperation.Fragments.AddData"
     android:layout_margin="10dp"
     app:cardCornerRadius="3dp"
     android:backgroundTint="#F1F9FF">
@@ -37,28 +37,6 @@
             android:focusableInTouchMode="false"
             android:hint="Enter date" />
 
-<!--        <com.google.android.material.textfield.TextInputLayout-->
-<!--            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="50dp"-->
-<!--            android:clickable="false"-->
-<!--            android:cursorVisible="false"-->
-<!--            android:focusable="false"-->
-<!--            android:focusableInTouchMode="false"-->
-<!--            android:hint="Enter date"-->
-<!--            android:layout_marginBottom="10dp"-->
-<!--            android:layout_marginTop="10dp"-->
-<!--            android:layout_marginRight="10dp"-->
-<!--            android:layout_marginLeft="10dp">-->
-
-<!--            <com.google.android.material.textfield.TextInputEditText-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:textSize="15sp"-->
-<!--                android:textColor="@color/black"-->
-<!--                android:id="@+id/dateID"/>-->
-
-<!--        </com.google.android.material.textfield.TextInputLayout>-->
 
         <com.google.android.material.textfield.TextInputLayout
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
@@ -184,25 +162,6 @@
                 android:textColor="@color/black" />
 
         </com.google.android.material.textfield.TextInputLayout>
-
-
-
-<!--        <EditText-->
-<!--            -->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint=""-->
-<!--            android:layout_margin="5dp"-->
-<!--            android:inputType="number"/>-->
-
-<!--        <EditText-->
-<!--            -->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:hint=""-->
-<!--            -->
-<!--            android:layout_margin="5dp"/>-->
-
 
         <Button
             android:id="@+id/addBtnID"
